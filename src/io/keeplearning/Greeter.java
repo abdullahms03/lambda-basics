@@ -5,17 +5,17 @@ public class Greeter {
     public static void main(String[] args) {
         Greeter greeter = new Greeter();
 
-        HelloWorldGreeting helloWorldGreeting = new HelloWorldGreeting();
-        greeter.greet(helloWorldGreeting);
+        Greeting helloWorldGreeting = new HelloWorldGreeting();
+        helloWorldGreeting.perform();
 
-        Greeting printLambda = () -> System.out.println("Hello World ! ");
-        greeter.greet(printLambda);
-        printLambda.perform();
+        Greeting lambdaGreeting = () -> System.out.println("Hello World!");
+        lambdaGreeting.perform(); // execute lambda
 
+        //Anonymous inner class
         Greeting innerClassGreeting = new Greeting() {
             @Override
             public void perform() {
-                System.out.println("Hello World ! ");
+                System.out.println("Hello World!");
             }
         };
         innerClassGreeting.perform();
