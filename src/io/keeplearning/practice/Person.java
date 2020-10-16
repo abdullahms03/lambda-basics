@@ -1,6 +1,6 @@
 package io.keeplearning.practice;
 
-public class Person implements Comparable<Person> {
+public class Person {
 
     private String firstName;
     private String lastName;
@@ -42,11 +42,4 @@ public class Person implements Comparable<Person> {
         return "Person [firstName=" + firstName + ", lastName=" + lastName + ", age=" + age + "]";
     }
 
-    @Override
-    public int compareTo(Person o) {
-        if(o.getLastName().equals(lastName)){
-            return 0;
-        }
-        return -1;
-    }
 }

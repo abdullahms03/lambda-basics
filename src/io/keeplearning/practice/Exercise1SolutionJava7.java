@@ -2,6 +2,7 @@ package io.keeplearning.practice;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class Exercise1SolutionJava7 {
@@ -16,25 +17,48 @@ public class Exercise1SolutionJava7 {
         );
 
         // Sort list by last name
-        Collections.sort(people);
+        Collections.sort(people, new Comparator<Person>() {
+            @Override
+            public int compare(Person o1, Person o2) {
+                return o1.getLastName().compareTo(o2.getLastName());
+            }
+        });
 
         // Create a method to print all elements in the list
-        printAll(people);
+        System.out.println("\nPrint all persons with provided Condition - condition is always 'true', print all the items");
+        printWithCondition(people, new Condition() {
+            @Override
+            public boolean evaluate(Person person) {
+                return true;
+            }
+        });
 
         // Create a method to print all people that have last name beginning with C
-        printLastNameStartsWithC(people);
+        System.out.println("\nPrint all persons with provided Condition - Last name starts with 'C' ");
+        printWithCondition(people, new Condition() {
+            @Override
+            public boolean evaluate(Person person) {
+                return person.getLastName().startsWith("C");
+            }
+        });
+
+        System.out.println("\nPrint all persons with provided Condition - First name starts with 'C' ");
+        printWithCondition(people, new Condition() {
+            @Override
+            public boolean evaluate(Person person) {
+                return person.getFirstName().startsWith("C");
+            }
+        });
     }
 
-    private static void printAll(List<Person> people) {
+    private static void printWithCondition(List<Person> people, Condition condition) {
         for (Person person : people) {
-            System.out.println(person);
-        }
-    }
-
-    private static void printLastNameStartsWithC(List<Person> people) {
-        for (Person person : people) {
-            if(person.getLastName().startsWith("C"))
+            if(condition.evaluate(person))
                 System.out.println(person);
         }
     }
+}
+
+interface Condition {
+    boolean evaluate(Person person);
 }
