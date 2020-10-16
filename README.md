@@ -21,5 +21,9 @@ public void perform() {
 perform = () -> System.out.println("Hello World!");
  
  ```
-###### Type Inference
+###### Type Inferencth
 Since the interface has the method signature already defined, the type of input argument(s) is/are not required.
+
+#### Functional Interface
+- Interface with only one abstract method
+- `@FunctionalInterface` annotation can be used to make it explicitly visible. Not mandatory, but best practice!
