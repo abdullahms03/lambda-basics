@@ -6,10 +6,8 @@ public class Greeter {
         Greeter greeter = new Greeter();
 
         Greeting helloWorldGreeting = new HelloWorldGreeting();
-        helloWorldGreeting.perform();
 
         Greeting lambdaGreeting = () -> System.out.println("Hello World!");
-        lambdaGreeting.perform(); // execute lambda
 
         //Anonymous inner class
         Greeting innerClassGreeting = new Greeting() {
@@ -18,7 +16,10 @@ public class Greeter {
                 System.out.println("Hello World!");
             }
         };
-        innerClassGreeting.perform();
+
+        greeter.greet(helloWorldGreeting);
+        greeter.greet(lambdaGreeting);
+        greeter.greet(innerClassGreeting);
     }
 
     public void greet(Greeting greeting) {

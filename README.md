@@ -21,3 +21,5 @@ public void perform() {
 perform = () -> System.out.println("Hello World!");
  
  ```
+###### Type Inference
+Since the interface has the method signature already defined, the type of input argument(s) is/are not required.
