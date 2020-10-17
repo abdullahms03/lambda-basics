@@ -2,6 +2,7 @@ package io.keeplearning.practice;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 public class Exercise1SolutionJava8 {
@@ -20,20 +21,20 @@ public class Exercise1SolutionJava8 {
 
         // Create a method to print all elements in the list
         System.out.println("\nPrint all persons with provided Condition - condition is always 'true', print all the items");
-        printWithCondition(people, person -> true);
+        performWithCondition(people, person -> true, p -> System.out.println(p));
 
         // Create a method to print all people that have last name beginning with C
         System.out.println("\nPrint all persons with provided Condition - Last name starts with 'C' ");
-        printWithCondition(people, person -> person.getLastName().startsWith("C"));
+        performWithCondition(people, person -> person.getLastName().startsWith("C"), p -> System.out.println(p));
 
         System.out.println("\nPrint all persons with provided Condition - First name starts with 'C' ");
-        printWithCondition(people, person -> person.getFirstName().startsWith("C"));
+        performWithCondition(people, person -> person.getFirstName().startsWith("C"), p -> System.out.println(p));
     }
 
-    private static void printWithCondition(List<Person> people, Predicate<Person> predicate) {
+    private static void performWithCondition(List<Person> people, Predicate<Person> predicate, Consumer<Person> consumer) {
         for (Person person : people) {
-            if(predicate.test(person))
-                System.out.println(person);
+            if (predicate.test(person))
+                consumer.accept(person);
         }
     }
 }
