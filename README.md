@@ -27,3 +27,5 @@ Since the interface has the method signature already defined, the type of input 
 #### Functional Interface
 - Interface with only one abstract method
 - `@FunctionalInterface` annotation can be used to make it explicitly visible. Not mandatory, but best practice!
+
+- Java 8 has set of interfaces introduced under package `java.util.function` e.g. `java.util.function.Predicate`

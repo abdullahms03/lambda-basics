@@ -1,9 +1,8 @@
 package io.keeplearning.practice;
 
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class Exercise1SolutionJava8 {
 
@@ -31,9 +30,9 @@ public class Exercise1SolutionJava8 {
         printWithCondition(people, person -> person.getFirstName().startsWith("C"));
     }
 
-    private static void printWithCondition(List<Person> people, Condition condition) {
+    private static void printWithCondition(List<Person> people, Predicate<Person> predicate) {
         for (Person person : people) {
-            if(condition.evaluate(person))
+            if(predicate.test(person))
                 System.out.println(person);
         }
     }
