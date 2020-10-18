@@ -29,3 +29,6 @@ Since the interface has the method signature already defined, the type of input 
 - `@FunctionalInterface` annotation can be used to make it explicitly visible. Not mandatory, but best practice!
 
 - Java 8 has set of interfaces introduced under package `java.util.function` e.g. `java.util.function.Predicate`
+
+#### Exception Handling
+- Creating a wrapper and handling the exception there is ONE of the option
